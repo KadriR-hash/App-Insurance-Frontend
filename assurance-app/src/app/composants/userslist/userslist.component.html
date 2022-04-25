@@ -1,0 +1,47 @@
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<hr>
+<button type="button" class="btn btn-warning" [routerLink]="['/admin']">Admin Panel</button>
+<button type="button" class="btn btn-warning" [routerLink]="['/enrollslist']" >Enrollements List</button>
+<button type="button" class="btn btn-warning" [routerLink]="['/login']">Logout</button>
+
+<div class="container bootstrap snippets bootdey" *ngFor="let User of users" id="main-container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                <th><span>User</span></th>
+                                <th><span>Created</span></th>
+                                <th class="text-center"><span>Status</span></th>
+                                <th><span>Email</span></th>
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
+                                        <a href="#" class="user-link">{{User?.name}}</a>
+                                        <span class="user-subhead">{{User?.id}}</span>
+                                    </td>
+                                    <td>???</td>
+                                    <td class="text-center">
+                                        <span class="label label-default">{{User?.role}}</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">{{User?.email}}</a>
+                                    </td>
+                                </tr>
+
+                            </tbody>     
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

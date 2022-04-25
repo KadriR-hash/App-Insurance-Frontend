@@ -1,0 +1,36 @@
+
+  
+  header,footer {
+    height: 280px;
+    position:absolute;
+    bottom: 0;
+    width: 100%;        
+  }
+
+  header{
+    height:10vh;
+  }
+
+  footer{
+    height:15vh;
+    bottom:0;
+  }
+
+  .nav{
+    position:absolute;
+    width:100%;
+  }
+
+  .ins{
+    position: static;
+    height:330%;
+    width:1550px;
+  
+
+  }
+  .desc{
+    position: static;
+    height:400%;
+    top:100px;
+  }
+

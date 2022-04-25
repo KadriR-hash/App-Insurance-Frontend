@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Slide Navbar</title>
+	<link rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="main">
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+		<div class="signup">
+			<form #SignupForm="ngForm" (ngSubmit)="signupUser()">
+
+				<label for="chk" aria-hidden="true">Sign up</label>
+
+				<div>
+					<input type="text" name="txt" placeholder="User name" required="" [(ngModel)]="user.name"
+						#name="ngModel" [class.is-invalid]="name.invalid && name.touched">
+					<small class="text-danger" [class.d-none]="name.valid || name.untouched">name is required
+						field</small>
+				</div>
+
+				<div>
+					<input type="email" name="email" placeholder="Email" required=""
+						pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="user.email" #email="ngModel"
+						[class.is-invalid]="email.invalid && email.touched">
+					<div *ngIf="email.errors && (email.invalid && email.touched)">
+						<small class="text-danger" *ngIf="email.errors?.['required']"> Email is required field </small>
+						<small class="text-danger" *ngIf="email.errors?.['pattern']"> Enter the valid Email value
+						</small>
+					</div>
+				</div>
+
+				<div>
+					<input type="password" name="pswd" placeholder="Password" required="" [(ngModel)]="user.password"
+						#password="ngModel" [class.is-invalid]="password.invalid && password.touched">
+					<small class="text-danger" [class.d-none]="password.valid || password.untouched">password is
+						required field</small>
+				</div>
+
+				<div>
+					<input type="password" name="cpswd" placeholder="ConfirmPassword" required=""
+						(ngModel)="user.password" #cpassword="ngModel"
+						[class.is-invalid]="cpassword.invalid && cpassword.touched">
+					<small class="text-danger"
+						[class.d-none]="cpassword.value ==cpassword.value ||cpassword.untouched">confirm password is
+						required field</small>
+				</div>
+
+
+				<button [disabled]="SignupForm.form.invalid" type="submit">Sign up</button>
+			</form>
+		</div>
+
+		<div class="login">
+			<form #loginForm="ngForm" (ngSubmit)="loginUser()">
+
+
+				<label for="chk" aria-hidden="true">Login</label>
+
+				<div>
+					<input type="email" name="email" placeholder="Email" required="" [(ngModel)]="user.email"
+						pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel"
+						[class.is-invalid]="email.invalid && email.touched">
+					<div *ngIf="email.errors && (email.invalid && email.touched)">
+						<small class="text-danger" *ngIf="email.errors?.['required']"> Email is required field </small>
+						<small class="text-danger" *ngIf="email.errors?.['pattern']"> Enter the valid Email value
+						</small>
+					</div>
+				</div>
+
+				<div>
+					<input type="password" name="pswd" placeholder="Password" required="" [(ngModel)]="user.password"
+						#password="ngModel" [class.is-invalid]="password.invalid && password.touched">
+					<small class="text-danger" [class.d-none]="password.valid || password.untouched">password is
+						required field</small>
+				</div>
+
+
+				<button [disabled]="loginForm.form.invalid" type="submit">Login</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

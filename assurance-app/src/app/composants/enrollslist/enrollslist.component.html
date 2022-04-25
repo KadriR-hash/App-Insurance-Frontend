@@ -1,0 +1,34 @@
+<div class="ins">
+        
+    <button type="button" class="btn btn-warning" [routerLink]="['/userslist']">List Users</button>
+    <button type="button" class="btn btn-warning" [routerLink]="['/login']">Logout</button>
+
+    <div class="table-responsive table-lg mt-4" >
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              
+              
+              <th class="max-width">Email</th>
+              <th class="max-width">Birth Date</th>
+              <th class="max-width">Phone number</th>
+              <th class="max-width">Address</th>
+              <th class="max-width">Provider</th>
+                
+            </tr>
+          </thead>
+          <tbody   *ngFor="let Enrols of enrols">
+            <tr>
+              <td class="text-nowrap align-middle"><span>{{Enrols?.userc?.email}}</span></td>
+              <td class="text-nowrap align-middle"><span>{{Enrols?.date}}</span></td>
+              <td class="price-container"><span>{{Enrols?.telenum}}</span></td>
+              <td class="text-nowrap align-middle"><span>{{Enrols?.adrrs}}</span></td>
+              <td class="text-nowrap align-middle"><span>{{Enrols?.planc?.provider}}</span></td>
+         
+              
+            </tr>
+       
+          </tbody>
+        </table>
+      </div>
+</div>
